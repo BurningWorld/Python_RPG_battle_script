@@ -194,12 +194,12 @@ class Person:
         hp_string = str(self.hp) + "/" + str(self.maxhp)
         spaces = ""
 
-        while len(hp_string) < 9:
+        while len(hp_string) < 11:
             spaces += " "
             hp_string = spaces + hp_string
             spaces = ""
 
-        print("                     __________________________________________________")
+        print("                       __________________________________________________")
         print(
             bcolors.BOLD + self.name + "   " + hp_string + "|" + bcolors.FAIL + hp_bar + bcolors.ENDC + "|" + bcolors.ENDC)
 
