@@ -107,7 +107,7 @@ class Person:
                       " , heals:", str(item["item"].prop), "HP", "x" + str(item["quantity"]) + ")")
             elif item["item"].type == "elixer":
                 print("   " + str(i) + ":", item["item"].name,
-                      "(" + str(item["item"].description) + " , restores player HP/MP",
+                      "(" + str(item["item"].description),
                       "x" + str(item["quantity"]) + ")")
             i += 1
         choice = input("   Choose Item: ")

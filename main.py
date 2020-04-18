@@ -12,8 +12,8 @@ meteor = Spell(name="Meteor", cost=40, dmg=1200, type="black")
 quake = Spell(name="Quake", cost=35, dmg=900, type="black")
 
 # Create white magic
-cure = Spell(name="Cure", cost=25, dmg=600, type="white")
-cura = Spell(name="Cura", cost=35, dmg=1500, type="white")
+heal = Spell(name="Heal", cost=25, dmg=600, type="white")
+cure = Spell(name="Cure", cost=35, dmg=1500, type="white")
 
 # create Item
 potion = Item(name="Potion", type="potion", description="Heals 50 HP", prop=50)
@@ -21,26 +21,29 @@ hipotion = Item(name="Hi-Potion", type="potion", description="Heals 100 HP", pro
 superpotion = Item(name="Super Potion", type="potion", description="Heals 500 HP", prop=500)
 elixer = Item(name="Elixer", type="elixer", description="Fully restores MP/HP of one party member", prop=9999)
 hielixer = Item(name="MegaElixer", type="elixer", description="Fully restores party's MP/HP", prop=9999)
-
 grenade = Item(name="Granade", type="attack", description="Deals 500 damage", prop=500)
 
 # Instantiate players
-player_spells = [fire, thunder, blizzard, meteor, cure, cura]
-enemy_spells = [fire, thunder, blizzard, meteor, cure]
-player_items = [{"item": potion, "quantity": 15}
+player_spells = [fire, thunder, blizzard, meteor, quake, heal, cure]
+enemy_spells = [fire, thunder, blizzard, meteor, heal]
+player_items = [{"item": potion, "quantity": 10}
+    , {"item": hipotion, "quantity": 5}
+    , {"item": superpotion, "quantity": 1}
+    , {"item": elixer, "quantity": 1}
+    , {"item": grenade, "quantity": 4}]
+healer_items = [{"item": potion, "quantity": 15}
     , {"item": hipotion, "quantity": 5}
     , {"item": superpotion, "quantity": 2}
     , {"item": elixer, "quantity": 3}
-    , {"item": hielixer, "quantity": 1}
-    , {"item": grenade, "quantity": 2}]
+    , {"item": hielixer, "quantity": 1}]
 
-player1 = Person(name="Valos", hp=3234, mp=132, atk=300, df=34, magic=player_spells, items=player_items)
-player2 = Person(name="Niki ", hp=5460, mp=188, atk=333, df=34, magic=player_spells, items=player_items)
-player3 = Person(name="Piki ", hp=4460, mp=190, atk=255, df=34, magic=player_spells, items=player_items)
+player1 = Person(name="Yoshi", hp=5234, mp=150, atk=400, df=34, magic=player_spells, items=player_items)
+player2 = Person(name="Imoen", hp=3440, mp=350, atk=333, df=34, magic=player_spells, items=healer_items)
+player3 = Person(name="Minsc", hp=6460, mp=100, atk=555, df=34, magic=player_spells, items=player_items)
 
-enemy1 = Person(name="Imp1    ", hp=1200, mp=300, atk=530, df=325, magic=enemy_spells, items=[])
-enemy2 = Person(name="Beholder", hp=9200, mp=250, atk=530, df=25, magic=enemy_spells, items=[])
-enemy3 = Person(name="Imp2    ", hp=1200, mp=300, atk=530, df=325, magic=enemy_spells, items=[])
+enemy1 = Person(name="Ghost   ", hp=1300, mp=300, atk=530, df=325, magic=enemy_spells, items=[])
+enemy2 = Person(name="Beholder", hp=15200, mp=250, atk=650, df=25, magic=enemy_spells, items=[])
+enemy3 = Person(name="Imp     ", hp=1200, mp=300, atk=430, df=325, magic=enemy_spells, items=[])
 
 players = [player1, player2, player3]
 enemies = [enemy1, enemy2, enemy3]
